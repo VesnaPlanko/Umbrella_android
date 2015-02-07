@@ -22,6 +22,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.secfirst.umbrella.adapters.DrawerAdapter;
 import org.secfirst.umbrella.fragments.DashboardFragment;
 import org.secfirst.umbrella.fragments.DifficultyFragment;
@@ -187,6 +189,14 @@ public class MainActivity extends BaseActivity implements DifficultyFragment.OnD
                 } else {
                     titleSpinner.setSelection(hasDifficulty.get(0).getSelected());
                 }
+                JSONObject props = new JSONObject();
+                try {
+                    props.put("difficulty", hasDifficulty.get(0).getSelected());
+                    props.put("topic", childItem.getTitle());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                global.getmMixpanel().track("Viewed Lesson", props);
             } else {
                 setTitle(childItem.getTitle());
                 titleSpinner.setVisibility(View.GONE);
