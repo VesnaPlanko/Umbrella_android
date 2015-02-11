@@ -197,6 +197,7 @@ public class TabbedFragment extends Fragment {
                                     nItem.save();
                                     refreshCheckList(drawerItem, diffArg);
                                     dialog.dismiss();
+                                    ((MainActivity) getActivity()).getGlobal().getmMixpanel().track("Added check item", new JSONObject());
                                     Toast.makeText(getActivity(), "You have added a new item.", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(getActivity(), "The item text has to be longer than that", Toast.LENGTH_SHORT).show();
