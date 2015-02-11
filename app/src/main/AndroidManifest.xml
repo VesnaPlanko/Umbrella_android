@@ -59,6 +59,9 @@
         <meta-data android:name="VERSION" android:value="1" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="org.secfirst.umbrella" />
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="41b34db9abdb2c4425562ae097803c283512d3fe" />
     </application>
 
 </manifest>

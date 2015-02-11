@@ -12,8 +12,10 @@ import android.text.InputType;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.mixpanel.android.mpmetrics.MixpanelAPI;
 
+import io.fabric.sdk.android.Fabric;
 import org.secfirst.umbrella.MainActivity;
 
 public class Global extends com.orm.SugarApp {
@@ -28,6 +30,7 @@ public class Global extends com.orm.SugarApp {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         Context mContext = getApplicationContext();
         prefs = mContext.getSharedPreferences(
                 "org.secfirst.umbrella", Application.MODE_PRIVATE);
